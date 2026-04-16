@@ -110,7 +110,13 @@ export default function Home() {
   if (!session) return (
     <div className="flex h-screen items-center justify-center bg-slate-100 p-4">
       <Card className="w-96 shadow-xl">
-        <CardHeader><CardTitle className="text-center text-2xl font-bold">BARTOLACCI TWS</CardTitle></CardHeader>
+        <CardHeader className="text-center">
+          {/* LOGO INSERITO QUI */}
+          <div className="flex justify-center mb-2">
+            <img src="/logo.png" alt="Logo" className="h-20 w-auto" />
+          </div>
+          <CardTitle className="text-2xl font-bold">BARTOLACCI TWS</CardTitle>
+        </CardHeader>
         <CardContent className="grid gap-4">
           <Input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
           <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
@@ -120,12 +126,19 @@ export default function Home() {
     </div>
   );
 
+
   return (
     <main className="p-6 bg-slate-50 min-h-screen text-slate-900">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-black italic uppercase">Bartolacci <span className="text-blue-600">TWS</span></h1>
-          <Button variant="ghost" onClick={() => supabase.auth.signOut().then(() => window.location.reload())}><LogOut className="mr-2 h-4 w-4" /> Esci</Button>
+          {/* LOGO E TITOLO INSERITI QUI */}
+          <div className="flex items-center gap-3">
+             <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+             <h1 className="text-3xl font-black italic uppercase">Bartolacci <span className="text-blue-600">TWS</span></h1>
+          </div>
+          <Button variant="ghost" onClick={() => supabase.auth.signOut().then(() => window.location.reload())}>
+            <LogOut className="mr-2 h-4 w-4" /> Esci
+          </Button>
         </div>
         
         <Card className="mb-6 shadow-sm border-l-4 border-l-blue-600">
